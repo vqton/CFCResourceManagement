@@ -30,6 +30,9 @@
         {
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblIPAddress = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblUserID = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cFTTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,9 +42,11 @@
             this.storesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.eInvoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblIPAddress = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblUserID = new System.Windows.Forms.ToolStripStatusLabel();
+            this.deploymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.warrantyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.parnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +69,24 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(49, 17);
             this.toolStripStatusLabel1.Text = "datetime";
+            // 
+            // lblIPAddress
+            // 
+            this.lblIPAddress.Name = "lblIPAddress";
+            this.lblIPAddress.Size = new System.Drawing.Size(53, 17);
+            this.lblIPAddress.Text = "ipaddress";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(90, 17);
+            this.toolStripStatusLabel3.Text = "connectionStatus";
+            // 
+            // lblUserID
+            // 
+            this.lblUserID.Name = "lblUserID";
+            this.lblUserID.Size = new System.Drawing.Size(39, 17);
+            this.lblUserID.Text = "userID";
             // 
             // menuStrip1
             // 
@@ -90,19 +113,19 @@
             // storesToolStripMenuItem
             // 
             this.storesToolStripMenuItem.Name = "storesToolStripMenuItem";
-            this.storesToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.storesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.storesToolStripMenuItem.Text = "Stores";
             this.storesToolStripMenuItem.Click += new System.EventHandler(this.storesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(102, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
             // pOSToolStripMenuItem
             // 
             this.pOSToolStripMenuItem.Name = "pOSToolStripMenuItem";
-            this.pOSToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.pOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pOSToolStripMenuItem.Text = "POS";
             // 
             // cFNQToolStripMenuItem
@@ -117,37 +140,54 @@
             // storesToolStripMenuItem1
             // 
             this.storesToolStripMenuItem1.Name = "storesToolStripMenuItem1";
-            this.storesToolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
+            this.storesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.storesToolStripMenuItem1.Text = "Stores";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(102, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
             // 
             // eInvoiceToolStripMenuItem
             // 
+            this.eInvoiceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deploymentToolStripMenuItem,
+            this.warrantyToolStripMenuItem,
+            this.toolStripMenuItem4,
+            this.parnerToolStripMenuItem,
+            this.toolStripMenuItem3});
             this.eInvoiceToolStripMenuItem.Name = "eInvoiceToolStripMenuItem";
             this.eInvoiceToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.eInvoiceToolStripMenuItem.Text = "EInvoice";
             // 
-            // lblIPAddress
+            // deploymentToolStripMenuItem
             // 
-            this.lblIPAddress.Name = "lblIPAddress";
-            this.lblIPAddress.Size = new System.Drawing.Size(53, 17);
-            this.lblIPAddress.Text = "ipaddress";
+            this.deploymentToolStripMenuItem.Name = "deploymentToolStripMenuItem";
+            this.deploymentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deploymentToolStripMenuItem.Text = "Hợp đồng triển khai";
             // 
-            // toolStripStatusLabel3
+            // warrantyToolStripMenuItem
             // 
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(90, 17);
-            this.toolStripStatusLabel3.Text = "connectionStatus";
+            this.warrantyToolStripMenuItem.Name = "warrantyToolStripMenuItem";
+            this.warrantyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.warrantyToolStripMenuItem.Text = "Hơp đồng bảo trì";
             // 
-            // lblUserID
+            // toolStripMenuItem4
             // 
-            this.lblUserID.Name = "lblUserID";
-            this.lblUserID.Size = new System.Drawing.Size(39, 17);
-            this.lblUserID.Text = "userID";
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
+            // 
+            // parnerToolStripMenuItem
+            // 
+            this.parnerToolStripMenuItem.Name = "parnerToolStripMenuItem";
+            this.parnerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.parnerToolStripMenuItem.Text = "Đối tác";
+            this.parnerToolStripMenuItem.Click += new System.EventHandler(this.parnerToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
             // 
             // frmMain
             // 
@@ -186,6 +226,11 @@
         private System.Windows.Forms.ToolStripStatusLabel lblIPAddress;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripStatusLabel lblUserID;
+        private System.Windows.Forms.ToolStripMenuItem deploymentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem warrantyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem parnerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
     }
 }
 
