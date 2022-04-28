@@ -8,21 +8,30 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace CFCResourceManagement
 {
     public partial class frmMain : Form
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        //Hứng các tham số được tiêm vào thông qua constructor
+        private readonly ILogger<frmMain> _logger;
+        //private readonly AppContext _context;
 
-        public frmMain()
+
+        public frmMain(ILogger<frmMain> logger)
         {
+            _logger = logger;
+            _logger.LogWarning("app started!");
+
             InitializeComponent();
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            log.Info("Hello world");
+            
+
             this.toolStripStatusLabel1.Text = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
             lblIPAddress.Text = "IP: " + GetIPAddress();
             lblUserID.Text = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
@@ -49,6 +58,12 @@ namespace CFCResourceManagement
                 }
             }
             return IPAddress;
+        }
+
+        private void parnerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDoiTac frmDoiTac = new frmDoiTac();
+            frmDoiTac.Show();
         }
     }
 }
