@@ -65,5 +65,11 @@ namespace CFCResourceManagement
             frmDoiTac frmDoiTac = new frmDoiTac();
             frmDoiTac.Show();
         }
+
+        private void deploymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHDDT_HopDong_TrienKhai oHDTrienKhai = new frmHDDT_HopDong_TrienKhai();
+            oHDTrienKhai.Show();
+        }
     }
 }

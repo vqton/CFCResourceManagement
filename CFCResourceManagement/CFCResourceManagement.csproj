@@ -229,6 +229,18 @@
     <Compile Include="frmDoiTac_add.Designer.cs">
       <DependentUpon>frmDoiTac_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHDDT_HopDong_TrienKhai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHDDT_HopDong_TrienKhai.Designer.cs">
+      <DependentUpon>frmHDDT_HopDong_TrienKhai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHDDT_HopDong_TrienKhai_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHDDT_HopDong_TrienKhai_add.Designer.cs">
+      <DependentUpon>frmHDDT_HopDong_TrienKhai_add.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +267,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDoiTac_add.resx">
       <DependentUpon>frmDoiTac_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHDDT_HopDong_TrienKhai.resx">
+      <DependentUpon>frmHDDT_HopDong_TrienKhai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHDDT_HopDong_TrienKhai_add.resx">
+      <DependentUpon>frmHDDT_HopDong_TrienKhai_add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -288,6 +306,7 @@
   <ItemGroup>
     <None Include="App.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>

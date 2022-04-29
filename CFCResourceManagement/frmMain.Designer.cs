@@ -140,13 +140,13 @@
             // storesToolStripMenuItem1
             // 
             this.storesToolStripMenuItem1.Name = "storesToolStripMenuItem1";
-            this.storesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.storesToolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
             this.storesToolStripMenuItem1.Text = "Stores";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(102, 6);
             // 
             // eInvoiceToolStripMenuItem
             // 
@@ -165,6 +165,7 @@
             this.deploymentToolStripMenuItem.Name = "deploymentToolStripMenuItem";
             this.deploymentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deploymentToolStripMenuItem.Text = "Hợp đồng triển khai";
+            this.deploymentToolStripMenuItem.Click += new System.EventHandler(this.deploymentToolStripMenuItem_Click);
             // 
             // warrantyToolStripMenuItem
             // 
