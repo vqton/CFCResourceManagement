@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,6 +59,18 @@
             this.txtDoiTac = new System.Windows.Forms.ComboBox();
             this.txtLoaiTien = new System.Windows.Forms.ComboBox();
             this.txtDVT_TGian = new System.Windows.Forms.ComboBox();
+            this.errSoHD = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errNguoiKy = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errPTThanhToan = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errNoiDung = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errMucDich = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errThoiHan = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errSoHD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNguoiKy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPTThanhToan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNoiDung)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMucDich)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errThoiHan)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
@@ -94,6 +107,8 @@
             this.txtSoHD.Name = "txtSoHD";
             this.txtSoHD.Size = new System.Drawing.Size(310, 20);
             this.txtSoHD.TabIndex = 3;
+            this.txtSoHD.TextChanged += new System.EventHandler(this.txtSoHD_TextChanged);
+            this.txtSoHD.Validating += new System.ComponentModel.CancelEventHandler(this.txtSoHD_Validating);
             // 
             // label2
             // 
@@ -119,6 +134,7 @@
             this.txtNguoiKy.Name = "txtNguoiKy";
             this.txtNguoiKy.Size = new System.Drawing.Size(310, 20);
             this.txtNguoiKy.TabIndex = 9;
+            this.txtNguoiKy.Validating += new System.ComponentModel.CancelEventHandler(this.txtNguoiKy_Validating);
             // 
             // label4
             // 
@@ -153,6 +169,7 @@
             this.txtNoiDung.Name = "txtNoiDung";
             this.txtNoiDung.Size = new System.Drawing.Size(310, 20);
             this.txtNoiDung.TabIndex = 15;
+            this.txtNoiDung.Validating += new System.ComponentModel.CancelEventHandler(this.txtNoiDung_Validating);
             // 
             // label7
             // 
@@ -169,6 +186,7 @@
             this.txtMucDich.Name = "txtMucDich";
             this.txtMucDich.Size = new System.Drawing.Size(310, 20);
             this.txtMucDich.TabIndex = 17;
+            this.txtMucDich.Validating += new System.ComponentModel.CancelEventHandler(this.txtMucDich_Validating);
             // 
             // label8
             // 
@@ -185,6 +203,7 @@
             this.txtThoiHan.Name = "txtThoiHan";
             this.txtThoiHan.Size = new System.Drawing.Size(310, 20);
             this.txtThoiHan.TabIndex = 19;
+            this.txtThoiHan.Validating += new System.ComponentModel.CancelEventHandler(this.txtThoiHan_Validating);
             // 
             // label9
             // 
@@ -235,6 +254,7 @@
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(310, 20);
             this.textBox13.TabIndex = 27;
+            this.textBox13.Validating += new System.ComponentModel.CancelEventHandler(this.textBox13_Validating);
             // 
             // label13
             // 
@@ -322,11 +342,35 @@
             this.txtDVT_TGian.Size = new System.Drawing.Size(121, 21);
             this.txtDVT_TGian.TabIndex = 35;
             // 
+            // errSoHD
+            // 
+            this.errSoHD.ContainerControl = this;
+            // 
+            // errNguoiKy
+            // 
+            this.errNguoiKy.ContainerControl = this;
+            // 
+            // errPTThanhToan
+            // 
+            this.errPTThanhToan.ContainerControl = this;
+            // 
+            // errNoiDung
+            // 
+            this.errNoiDung.ContainerControl = this;
+            // 
+            // errMucDich
+            // 
+            this.errMucDich.ContainerControl = this;
+            // 
+            // errThoiHan
+            // 
+            this.errThoiHan.ContainerControl = this;
+            // 
             // frmHDDT_HopDong_TrienKhai_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 396);
+            this.ClientSize = new System.Drawing.Size(517, 379);
             this.Controls.Add(this.txtDVT_TGian);
             this.Controls.Add(this.txtLoaiTien);
             this.Controls.Add(this.txtDoiTac);
@@ -360,6 +404,12 @@
             this.Name = "frmHDDT_HopDong_TrienKhai_add";
             this.Text = "frmHDDT_HopDong_TrienKhai_add";
             this.Load += new System.EventHandler(this.frmHDDT_HopDong_TrienKhai_add_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errSoHD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNguoiKy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPTThanhToan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errNoiDung)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMucDich)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errThoiHan)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,5 +447,11 @@
         private System.Windows.Forms.ComboBox txtDoiTac;
         private System.Windows.Forms.ComboBox txtLoaiTien;
         private System.Windows.Forms.ComboBox txtDVT_TGian;
+        private System.Windows.Forms.ErrorProvider errSoHD;
+        private System.Windows.Forms.ErrorProvider errNguoiKy;
+        private System.Windows.Forms.ErrorProvider errPTThanhToan;
+        private System.Windows.Forms.ErrorProvider errNoiDung;
+        private System.Windows.Forms.ErrorProvider errMucDich;
+        private System.Windows.Forms.ErrorProvider errThoiHan;
     }
 }
