@@ -46,10 +46,10 @@
             this.txtThoiHan = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtGiaTri = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtPTThanhToan = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -81,6 +81,7 @@
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -223,12 +224,12 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "Đơn vị";
             // 
-            // textBox11
+            // txtGiaTri
             // 
-            this.textBox11.Location = new System.Drawing.Point(156, 252);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(310, 20);
-            this.textBox11.TabIndex = 23;
+            this.txtGiaTri.Location = new System.Drawing.Point(156, 252);
+            this.txtGiaTri.Name = "txtGiaTri";
+            this.txtGiaTri.Size = new System.Drawing.Size(310, 20);
+            this.txtGiaTri.TabIndex = 23;
             // 
             // label11
             // 
@@ -248,13 +249,13 @@
             this.label12.TabIndex = 24;
             this.label12.Text = "Loại tiền";
             // 
-            // textBox13
+            // txtPTThanhToan
             // 
-            this.textBox13.Location = new System.Drawing.Point(156, 300);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(310, 20);
-            this.textBox13.TabIndex = 27;
-            this.textBox13.Validating += new System.ComponentModel.CancelEventHandler(this.textBox13_Validating);
+            this.txtPTThanhToan.Location = new System.Drawing.Point(156, 300);
+            this.txtPTThanhToan.Name = "txtPTThanhToan";
+            this.txtPTThanhToan.Size = new System.Drawing.Size(310, 20);
+            this.txtPTThanhToan.TabIndex = 27;
+            this.txtPTThanhToan.Validating += new System.ComponentModel.CancelEventHandler(this.textBox13_Validating);
             // 
             // label13
             // 
@@ -379,10 +380,10 @@
             this.Controls.Add(this.txtNgayhD);
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox13);
+            this.Controls.Add(this.txtPTThanhToan);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.txtGiaTri);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtThoiHan);
@@ -434,10 +435,10 @@
         private System.Windows.Forms.TextBox txtThoiHan;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtGiaTri;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtPTThanhToan;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label14;

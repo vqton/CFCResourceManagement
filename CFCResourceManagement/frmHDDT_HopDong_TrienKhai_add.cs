@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -97,13 +98,13 @@ namespace CFCResourceManagement
             {
                 e.Cancel = true;
                 txtNguoiKy.Focus();
-                errSoHD.SetError(txtNguoiKy, "Contract id should not be left blank!");
+                errNguoiKy.SetError(txtNguoiKy, "Contract id should not be left blank!");
             }
             {
                 e.Cancel = false;
                 errNguoiKy.SetError(txtNguoiKy, string.Empty);
             }
-            
+
 
         }
 
@@ -162,15 +163,56 @@ namespace CFCResourceManagement
         private void textBox13_Validating(object sender, CancelEventArgs e)
         {
 
-            if (!clsValidatingFunctions.NotEmpty(textBox13.Text))
+            if (!clsValidatingFunctions.NotEmpty(txtPTThanhToan.Text))
             {
                 e.Cancel = true;
-                textBox13.Focus();
-                errPTThanhToan.SetError(textBox13, "Contract id should not be left blank!");
+                txtPTThanhToan.Focus();
+                errPTThanhToan.SetError(txtPTThanhToan, "Contract id should not be left blank!");
             }
             {
                 e.Cancel = false;
-                errPTThanhToan.SetError(textBox13, string.Empty);
+                errPTThanhToan.SetError(txtPTThanhToan, string.Empty);
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string sQuery = string.Empty;
+
+
+            try
+            {
+                sQuery = "EXEC usp_Hd_trienKhai_hddt_add";
+
+                sQuery += " '" + txtSoHD.Text + "'";
+                //sQuery += ",'" + txtSoHD.Text + "'";
+                sQuery += ",N'" + txtLoaiHD.Text + "'";
+                sQuery += ",'" + txtNgayhD.Value.ToString("yyyyMMdd") + "'";
+                sQuery += ",N'" + txtNguoiKy.Text + "'";
+                sQuery += ",'" + txtDoiTac.Text + "'";
+                sQuery += ",N'" + txtChucDanh.Text + "'";
+                sQuery += ",N'" + txtNoiDung.Text + "'";
+                sQuery += ",N'" + txtMucDich.Text + "'";
+                sQuery += "," + txtThoiHan.Text + "";
+                sQuery += ",N'" + txtDVT_TGian.Text + "'";
+                sQuery += "," + txtGiaTri.Text + "";
+                sQuery += ",N'" + txtLoaiTien.Text + "'";
+                sQuery += ",N'" + txtPTThanhToan.Text + "'";
+                sQuery += ",'" + textBox14.Text + "'";
+                sQuery += ",'" + DateTime.Today.ToString("yyyyMMdd") + "'";
+                sQuery += ",'" + DateTime.Today.ToString("yyyyMMdd") + "'";
+
+                SqlHelper oSqlHelper = new SqlHelper();
+                oSqlHelper.ExecNonQuery(sQuery);
+                                
+                MessageBox.Show("Ok");
+                clsLog.logger_INFO(sQuery);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                clsLog.logger_ERROR(ex.Message);
+                clsLog.logger_INFO(sQuery);
             }
         }
     }
