@@ -14,14 +14,17 @@ namespace CFCResourceManagement
     public partial class frmHDDT_HopDong_TrienKhai_add : Form
     {
         DataTable _dtDoitac;
-        public frmHDDT_HopDong_TrienKhai_add()
+        frmHDDT_HopDong_TrienKhai _HopDong_TrienKhai;
+        public frmHDDT_HopDong_TrienKhai_add(frmHDDT_HopDong_TrienKhai HopDong_TrienKhai)
         {
             InitializeComponent();
+            _HopDong_TrienKhai = HopDong_TrienKhai;
         }
 
         private void frmHDDT_HopDong_TrienKhai_add_Load(object sender, EventArgs e)
         {
             SetDefaultValues();
+            txtSoHD.Focus();
         }
 
         void SetDefaultValues()
@@ -30,7 +33,7 @@ namespace CFCResourceManagement
             txtLoaiHD.SelectedIndex = 0;
             txtLoaiTien.SelectedIndex = 0;
             txtDVT_TGian.SelectedIndex = 0;
-
+            txtPTThanhToan.Text = "30 (ba mươi) ngày làm việc kể từ ngày nhận đầy đủ hồ sơ thanh toán hợp lệ.";
             GetMaDoiTac();
             if (_dtDoitac != null)
             {
@@ -142,7 +145,7 @@ namespace CFCResourceManagement
             {
                 e.Cancel = true;
                 txtThoiHan.Focus();
-                errThoiHan.SetError(txtThoiHan, "Contract id should not be left blank!");
+                errThoiHan.SetError(txtThoiHan, "Input!");
             }
             var isDigit = clsValidatingFunctions.IsDigit(txtThoiHan.Text);
 
@@ -204,7 +207,7 @@ namespace CFCResourceManagement
 
                 SqlHelper oSqlHelper = new SqlHelper();
                 oSqlHelper.ExecNonQuery(sQuery);
-                                
+                File.AppendAllText(String.Format("logs\\trace_{0}.txt", DateTime.Today.ToString("yyyyMMdd")), sQuery);
                 MessageBox.Show("Ok");
                 clsLog.logger_INFO(sQuery);
                 this.Close();
@@ -214,6 +217,11 @@ namespace CFCResourceManagement
                 clsLog.logger_ERROR(ex.Message);
                 clsLog.logger_INFO(sQuery);
             }
+        }
+
+        private void frmHDDT_HopDong_TrienKhai_add_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _HopDong_TrienKhai.LoadDataSource();
         }
     }
 }

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using System.Threading;
 
 namespace CFCResourceManagement
 {
@@ -47,20 +48,29 @@ namespace CFCResourceManagement
 
 
              }).Build();
+
+        static Mutex mutex = new Mutex(true, "8656766f-06d3-4b0b-9ba5-50f12da757ef");
+
         [STAThread]
         static void Main()
         {
             _host.Start();
+            if (mutex.WaitOne(TimeSpan.Zero, true))
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            var formMain = _host.Services.GetRequiredService<frmMain>();
-            Application.Run(formMain);
-
-            //Khi form chính (form1) bị đóng <==> chương trình kết thúc ấy
-            //thì dừng host
-            _host.StopAsync().GetAwaiter().GetResult();
+                var formMain = _host.Services.GetRequiredService<frmMain>();
+                Application.Run(formMain);
+                mutex.ReleaseMutex();
+            }
+            else
+            {
+                MessageBox.Show("only one instance at a time");
+            }
+                //Khi form chính (form1) bị đóng <==> chương trình kết thúc ấy
+                //thì dừng host
+                _host.StopAsync().GetAwaiter().GetResult();
 
             //và giải phóng tài nguyên host đã sử dụng.
             _host.Dispose();
