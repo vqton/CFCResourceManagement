@@ -46,10 +46,10 @@
             this.txtThoiHan = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtGiaTri = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtPTThanhToan = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -78,16 +78,17 @@
             this.btnSave.Location = new System.Drawing.Point(180, 350);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 0;
+            this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(262, 350);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 1;
+            this.btnClose.TabIndex = 15;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -106,7 +107,7 @@
             this.txtSoHD.Location = new System.Drawing.Point(156, 12);
             this.txtSoHD.Name = "txtSoHD";
             this.txtSoHD.Size = new System.Drawing.Size(310, 20);
-            this.txtSoHD.TabIndex = 3;
+            this.txtSoHD.TabIndex = 0;
             this.txtSoHD.TextChanged += new System.EventHandler(this.txtSoHD_TextChanged);
             this.txtSoHD.Validating += new System.ComponentModel.CancelEventHandler(this.txtSoHD_Validating);
             // 
@@ -133,7 +134,7 @@
             this.txtNguoiKy.Location = new System.Drawing.Point(156, 84);
             this.txtNguoiKy.Name = "txtNguoiKy";
             this.txtNguoiKy.Size = new System.Drawing.Size(310, 20);
-            this.txtNguoiKy.TabIndex = 9;
+            this.txtNguoiKy.TabIndex = 3;
             this.txtNguoiKy.Validating += new System.ComponentModel.CancelEventHandler(this.txtNguoiKy_Validating);
             // 
             // label4
@@ -168,7 +169,7 @@
             this.txtNoiDung.Location = new System.Drawing.Point(156, 156);
             this.txtNoiDung.Name = "txtNoiDung";
             this.txtNoiDung.Size = new System.Drawing.Size(310, 20);
-            this.txtNoiDung.TabIndex = 15;
+            this.txtNoiDung.TabIndex = 6;
             this.txtNoiDung.Validating += new System.ComponentModel.CancelEventHandler(this.txtNoiDung_Validating);
             // 
             // label7
@@ -185,7 +186,7 @@
             this.txtMucDich.Location = new System.Drawing.Point(156, 180);
             this.txtMucDich.Name = "txtMucDich";
             this.txtMucDich.Size = new System.Drawing.Size(310, 20);
-            this.txtMucDich.TabIndex = 17;
+            this.txtMucDich.TabIndex = 7;
             this.txtMucDich.Validating += new System.ComponentModel.CancelEventHandler(this.txtMucDich_Validating);
             // 
             // label8
@@ -202,7 +203,7 @@
             this.txtThoiHan.Location = new System.Drawing.Point(156, 204);
             this.txtThoiHan.Name = "txtThoiHan";
             this.txtThoiHan.Size = new System.Drawing.Size(310, 20);
-            this.txtThoiHan.TabIndex = 19;
+            this.txtThoiHan.TabIndex = 8;
             this.txtThoiHan.Validating += new System.ComponentModel.CancelEventHandler(this.txtThoiHan_Validating);
             // 
             // label9
@@ -223,12 +224,12 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "Đơn vị";
             // 
-            // textBox11
+            // txtGiaTri
             // 
-            this.textBox11.Location = new System.Drawing.Point(156, 252);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(310, 20);
-            this.textBox11.TabIndex = 23;
+            this.txtGiaTri.Location = new System.Drawing.Point(156, 252);
+            this.txtGiaTri.Name = "txtGiaTri";
+            this.txtGiaTri.Size = new System.Drawing.Size(310, 20);
+            this.txtGiaTri.TabIndex = 10;
             // 
             // label11
             // 
@@ -248,13 +249,13 @@
             this.label12.TabIndex = 24;
             this.label12.Text = "Loại tiền";
             // 
-            // textBox13
+            // txtPTThanhToan
             // 
-            this.textBox13.Location = new System.Drawing.Point(156, 300);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(310, 20);
-            this.textBox13.TabIndex = 27;
-            this.textBox13.Validating += new System.ComponentModel.CancelEventHandler(this.textBox13_Validating);
+            this.txtPTThanhToan.Location = new System.Drawing.Point(156, 300);
+            this.txtPTThanhToan.Name = "txtPTThanhToan";
+            this.txtPTThanhToan.Size = new System.Drawing.Size(310, 20);
+            this.txtPTThanhToan.TabIndex = 12;
+            this.txtPTThanhToan.Validating += new System.ComponentModel.CancelEventHandler(this.textBox13_Validating);
             // 
             // label13
             // 
@@ -270,7 +271,7 @@
             this.textBox14.Location = new System.Drawing.Point(156, 324);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(310, 20);
-            this.textBox14.TabIndex = 29;
+            this.textBox14.TabIndex = 13;
             // 
             // label14
             // 
@@ -287,7 +288,7 @@
             this.txtNgayhD.Location = new System.Drawing.Point(156, 60);
             this.txtNgayhD.Name = "txtNgayhD";
             this.txtNgayhD.Size = new System.Drawing.Size(200, 20);
-            this.txtNgayhD.TabIndex = 30;
+            this.txtNgayhD.TabIndex = 2;
             // 
             // txtLoaiHD
             // 
@@ -298,7 +299,7 @@
             this.txtLoaiHD.Location = new System.Drawing.Point(156, 35);
             this.txtLoaiHD.Name = "txtLoaiHD";
             this.txtLoaiHD.Size = new System.Drawing.Size(121, 21);
-            this.txtLoaiHD.TabIndex = 31;
+            this.txtLoaiHD.TabIndex = 1;
             // 
             // txtChucDanh
             // 
@@ -310,7 +311,7 @@
             this.txtChucDanh.Location = new System.Drawing.Point(156, 108);
             this.txtChucDanh.Name = "txtChucDanh";
             this.txtChucDanh.Size = new System.Drawing.Size(121, 21);
-            this.txtChucDanh.TabIndex = 32;
+            this.txtChucDanh.TabIndex = 4;
             // 
             // txtDoiTac
             // 
@@ -318,7 +319,7 @@
             this.txtDoiTac.Location = new System.Drawing.Point(156, 132);
             this.txtDoiTac.Name = "txtDoiTac";
             this.txtDoiTac.Size = new System.Drawing.Size(121, 21);
-            this.txtDoiTac.TabIndex = 33;
+            this.txtDoiTac.TabIndex = 5;
             // 
             // txtLoaiTien
             // 
@@ -329,7 +330,7 @@
             this.txtLoaiTien.Location = new System.Drawing.Point(156, 276);
             this.txtLoaiTien.Name = "txtLoaiTien";
             this.txtLoaiTien.Size = new System.Drawing.Size(121, 21);
-            this.txtLoaiTien.TabIndex = 34;
+            this.txtLoaiTien.TabIndex = 11;
             // 
             // txtDVT_TGian
             // 
@@ -340,7 +341,7 @@
             this.txtDVT_TGian.Location = new System.Drawing.Point(156, 228);
             this.txtDVT_TGian.Name = "txtDVT_TGian";
             this.txtDVT_TGian.Size = new System.Drawing.Size(121, 21);
-            this.txtDVT_TGian.TabIndex = 35;
+            this.txtDVT_TGian.TabIndex = 9;
             // 
             // errSoHD
             // 
@@ -379,10 +380,10 @@
             this.Controls.Add(this.txtNgayhD);
             this.Controls.Add(this.textBox14);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox13);
+            this.Controls.Add(this.txtPTThanhToan);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.txtGiaTri);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtThoiHan);
@@ -403,6 +404,7 @@
             this.Controls.Add(this.btnSave);
             this.Name = "frmHDDT_HopDong_TrienKhai_add";
             this.Text = "frmHDDT_HopDong_TrienKhai_add";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHDDT_HopDong_TrienKhai_add_FormClosing);
             this.Load += new System.EventHandler(this.frmHDDT_HopDong_TrienKhai_add_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errSoHD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errNguoiKy)).EndInit();
@@ -434,10 +436,10 @@
         private System.Windows.Forms.TextBox txtThoiHan;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtGiaTri;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtPTThanhToan;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label14;
