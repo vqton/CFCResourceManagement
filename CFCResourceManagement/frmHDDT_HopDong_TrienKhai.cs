@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,17 @@ namespace CFCResourceManagement
     public partial class frmHDDT_HopDong_TrienKhai : Form
     {
         DataTable _oDataSource;
+
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+
+        Dictionary<string, string> dctUpdFields = new Dictionary<string, string>();
+
         public frmHDDT_HopDong_TrienKhai()
         {
             InitializeComponent();
+
             this.WindowState = FormWindowState.Maximized;
+            
         }
 
         public void LoadDataSource()
@@ -28,12 +36,13 @@ namespace CFCResourceManagement
             {
                 sSelectQry = "  SELECT * FROM Hd_trienKhai_hddt";
                 _oDataSource = sqlHelper.GetData(sSelectQry);
-                clsLog.logger_INFO("Get data sucessful");
+                
             }
             catch (Exception ex)
             {
+                Logger.Debug(ex.Message);
 
-                clsLog.logger_ERROR(ex.Message);
+
             }
 
         }
@@ -64,7 +73,7 @@ namespace CFCResourceManagement
                 try
                 {
                     SqlHelper oSql = new SqlHelper();
-                    sQuery = String.Format("DELETE FROM Hd_trienKhai_hddt WHERE so_hd ='{0}'", sSoHopDong);
+                    sQuery = String.Format("DELETE FROM 1Hd_trienKhai_hddt WHERE so_hd ='{0}'", sSoHopDong);
                     oSql.ExecNonQuery(sQuery);
                     LoadDataSource();
                     dataGridView1.DataSource = _oDataSource;
@@ -72,7 +81,7 @@ namespace CFCResourceManagement
                 catch (Exception ex)
                 {
 
-                    clsLog.logger_ERROR(ex.Message);
+                    Logger.Info(ex.Message);
                 }
 
             }
@@ -101,8 +110,48 @@ namespace CFCResourceManagement
             catch (Exception ex)
             {
 
-                clsLog.logger_ERROR(ex.Message);
+                
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            var sMaHD = string.Empty;
+            var sQuery = string.Empty;
+            var s = "";
+
+            
+            try
+            {
+
+                sMaHD = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                SqlHelper oSql = new SqlHelper();
+                
+                    foreach (KeyValuePair<string, string> item in dctUpdFields)
+                    {
+                        sQuery = String.Format("UPDATE 1Hd_trienKhai_hddt SET {0}='{1}', ngay_capNhat=GetDate() WHERE so_hd = '{2}'", item.Key, item.Value, sMaHD);
+                    oSql.ExecNonQuery(sQuery);
+
+                    }
+                Clipboard.SetText(sQuery);
+                MessageBox.Show(sQuery);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            var updValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            var sFieldName = dataGridView1.Columns[e.ColumnIndex].HeaderText;
+
+            dctUpdFields.Add(sFieldName, updValue);
+
+
         }
     }
 }

@@ -63,7 +63,7 @@ namespace CFCResourceManagement
             catch (Exception ex)
             {
 
-                clsLog.logger_ERROR(ex.Message);
+                
             }
 
 
@@ -209,13 +209,12 @@ namespace CFCResourceManagement
                 oSqlHelper.ExecNonQuery(sQuery);
                 File.AppendAllText(String.Format("logs\\trace_{0}.txt", DateTime.Today.ToString("yyyyMMdd")), sQuery);
                 MessageBox.Show("Ok");
-                clsLog.logger_INFO(sQuery);
+                
                 this.Close();
             }
             catch (Exception ex)
             {
-                clsLog.logger_ERROR(ex.Message);
-                clsLog.logger_INFO(sQuery);
+                
             }
         }
 

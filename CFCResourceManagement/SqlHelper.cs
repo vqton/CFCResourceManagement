@@ -7,11 +7,11 @@ using System.Data;
 public class SqlHelper
 {
     string connectionString = "";
-
+    private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
     public SqlHelper()
     {
         connectionString = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
-        Log.Information(connectionString);
+        
     }
 
     public void ExecNonQuery(string queryString)
@@ -25,13 +25,12 @@ public class SqlHelper
                 SqlCommand command = new SqlCommand(queryString, connection);
                 connection.Open();
                 iResult = command.ExecuteNonQuery();
-                Log.Information("Records affected: " + iResult.ToString("N0"));
+                
             }
             catch (Exception ex)
             {
-
-                Log.Error(ex.Message);
-                Log.Debug(queryString);
+                Logger.Debug(ex, "Error");
+                
             }
 
 
@@ -44,10 +43,10 @@ public class SqlHelper
                    connectionString))
         {
             connection.Open();
-            Log.Information(connection.State.ToString());
+           
             SqlCommand command = new SqlCommand(queryString, connection);
             SqlDataReader reader = command.ExecuteReader();
-            Log.Information(queryString);
+           
 
             return reader;
         }
@@ -70,7 +69,7 @@ public class SqlHelper
             }
             catch (Exception ex)
             {
-                Log.Debug(ex.Message);
+                Logger.Debug(ex.Message);
             }
 
         }
@@ -94,6 +93,7 @@ public class SqlHelper
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Logger.Debug(ex.Message);
             }
         }
         return result;
@@ -115,6 +115,7 @@ public class SqlHelper
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Logger.Debug(ex.Message);
             }
         }
         return result;

@@ -13,10 +13,12 @@ namespace CFCResourceManagement
 {
     public partial class frmDoiTac : Form
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         DataTable _dtSource;
         public frmDoiTac()
         {
             InitializeComponent();
+            Logger.Info("hello world");
         }
 
         void GetData()
@@ -51,7 +53,7 @@ namespace CFCResourceManagement
             catch (Exception ex)
             {
 
-                clsLog.logger_ERROR(ex.Message);
+                Logger.Debug(ex.Message);
             }
 
         }
@@ -84,15 +86,15 @@ namespace CFCResourceManagement
                 if (result == DialogResult.Yes)
                 {
                     SqlHelper sqlHelper = new SqlHelper();
-                    sqlHelper.ExecNonQuery(String.Format("DELETE FROM doi_tac WHERE ma_doi_tac = '{0}'", sMaDTac));
+                    sqlHelper.ExecNonQuery(String.Format("DELETE FROM 1doi_tac WHERE ma_doi_tac = '{0}'", sMaDTac));
                     GetData();
                 }
-               
+
             }
             catch (Exception ex)
             {
 
-                clsLog.logger_ERROR(ex.Message);
+                Logger.Error(ex.Message, "here");
             }
         }
     }

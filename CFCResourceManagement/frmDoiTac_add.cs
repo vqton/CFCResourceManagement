@@ -135,9 +135,8 @@ namespace CFCResourceManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There is issue. Open log file to read technical information about the issue.", "Add records", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                clsLog.logger_ERROR(ex.Message);
-                clsLog.logger_DEBUG(sInsertQuery);
+               MessageBox.Show("There is issue. Open log file to read technical information about the issue.", "Add records", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
             }
 
 

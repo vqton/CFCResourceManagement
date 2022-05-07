@@ -16,21 +16,20 @@ namespace CFCResourceManagement
     public partial class frmMain : Form
     {
         //Hứng các tham số được tiêm vào thông qua constructor
-        private readonly ILogger<frmMain> _logger;
+
         //private readonly AppContext _context;
 
 
-        public frmMain(ILogger<frmMain> logger)
+        public frmMain()
         {
-            _logger = logger;
-            _logger.LogWarning("app started!");
+
 
             InitializeComponent();
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            
+
 
             this.toolStripStatusLabel1.Text = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
             lblIPAddress.Text = "IP: " + GetIPAddress();

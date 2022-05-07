@@ -18,7 +18,7 @@ namespace CFCResourceManagement
         DataTable _oDataSource;
         public frmCoopFoodTrucThuoc()
         {
-            Log.Information("Hello world");
+            
             InitializeComponent();
             this.Text = "Danh sách Co.opFood trực thuộc";
         }
@@ -48,7 +48,7 @@ namespace CFCResourceManagement
             catch (Exception ex)
             {
 
-                Log.Debug(ex.Message);
+                
             }
 
         }
@@ -71,7 +71,7 @@ namespace CFCResourceManagement
 
             _oDataSource = sqlHelper.GetData("SELECT * FROM CF_TRUC_THUOC");
 
-            Log.Information(_oDataSource.Rows.Count.ToString("N0"));
+            
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace CFCResourceManagement
             }
             catch (Exception exc)
             {
-                Log.Debug(exc.Message);
+                
             }
         }
 
@@ -196,7 +196,7 @@ namespace CFCResourceManagement
             }
             catch (Exception ex)
             {
-                clsLog.logger_ERROR(ex.Message);
+                
             }
 
         }

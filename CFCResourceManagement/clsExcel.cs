@@ -115,8 +115,7 @@ namespace CFCResourceManagement
             }
             catch (Exception ex)
             {
-                Log.Error(ex.Message);
-                Log.Error(sQueryIns);
+               
             }
             return isSuccessful;
         }
