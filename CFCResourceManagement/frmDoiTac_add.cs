@@ -25,7 +25,7 @@ namespace CFCResourceManagement
         {
             var s = string.Empty;
 
-            SqlHelper sqlHelper = new SqlHelper();
+            SqlHelper sqlHelper = new SqlHelper("cnn");
             int max = (int)sqlHelper.ExecScalar("select count(*) from doi_tac");
             s = "NCC" + max.ToString();
 
@@ -129,15 +129,14 @@ namespace CFCResourceManagement
                 sInsertQuery += ",'" + DateTime.Now.ToString("yyyyMMdd hh:mm:ss") + "'";
                 sInsertQuery += ",N'" + txtDienThoai.Text + "')";
 
-                SqlHelper oSqlHelper = new SqlHelper();
+                SqlHelper oSqlHelper = new SqlHelper("cnn");
                 oSqlHelper.ExecNonQuery(sInsertQuery);
                 MessageBox.Show("The record has inserted.", "Add records", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There is issue. Open log file to read technical information about the issue.", "Add records", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                clsLog.logger_ERROR(ex.Message);
-                clsLog.logger_DEBUG(sInsertQuery);
+               MessageBox.Show("There is issue. Open log file to read technical information about the issue.", "Add records", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
             }
 
 

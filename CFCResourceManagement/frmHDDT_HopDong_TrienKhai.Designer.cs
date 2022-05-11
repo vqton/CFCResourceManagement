@@ -36,7 +36,7 @@
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnAdd = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.btnUpdate = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -93,7 +93,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAdd,
-            this.toolStripButton2,
+            this.btnUpdate,
             this.toolStripButton3,
             this.toolStripSeparator1,
             this.toolStripLabel1,
@@ -119,14 +119,15 @@
             this.btnAdd.Text = "Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // toolStripButton2
+            // btnUpdate
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.btnUpdate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(23, 22);
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // toolStripButton3
             // 
@@ -197,6 +198,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(800, 403);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
             // frmHDDT_HopDong_TrienKhai
             // 
@@ -226,7 +228,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripButton btnAdd;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton btnUpdate;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;

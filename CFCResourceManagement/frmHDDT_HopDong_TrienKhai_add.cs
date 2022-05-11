@@ -14,6 +14,7 @@ namespace CFCResourceManagement
     public partial class frmHDDT_HopDong_TrienKhai_add : Form
     {
         DataTable _dtDoitac;
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         frmHDDT_HopDong_TrienKhai _HopDong_TrienKhai;
         public frmHDDT_HopDong_TrienKhai_add(frmHDDT_HopDong_TrienKhai HopDong_TrienKhai)
         {
@@ -55,15 +56,15 @@ namespace CFCResourceManagement
             try
             {
 
-                SqlHelper oSqlHelper = new SqlHelper();
+                SqlHelper oSqlHelper = new SqlHelper("cnn");
                 sSelectQuery = "SELECT ma_doi_tac, ten_cong_ty from doi_tac";
 
                 _dtDoitac = oSqlHelper.GetData(sSelectQuery);
             }
             catch (Exception ex)
             {
-
-                clsLog.logger_ERROR(ex.Message);
+                Logger.Debug(ex, "error");
+                
             }
 
 
@@ -205,17 +206,16 @@ namespace CFCResourceManagement
                 sQuery += ",'" + DateTime.Today.ToString("yyyyMMdd") + "'";
                 sQuery += ",'" + DateTime.Today.ToString("yyyyMMdd") + "'";
 
-                SqlHelper oSqlHelper = new SqlHelper();
+                SqlHelper oSqlHelper = new SqlHelper("cnn");
                 oSqlHelper.ExecNonQuery(sQuery);
                 File.AppendAllText(String.Format("logs\\trace_{0}.txt", DateTime.Today.ToString("yyyyMMdd")), sQuery);
                 MessageBox.Show("Ok");
-                clsLog.logger_INFO(sQuery);
+                
                 this.Close();
             }
             catch (Exception ex)
             {
-                clsLog.logger_ERROR(ex.Message);
-                clsLog.logger_INFO(sQuery);
+                Logger.Debug(ex, "error");
             }
         }
 
