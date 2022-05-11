@@ -13,6 +13,7 @@ namespace CFCResourceManagement
 {
     public partial class frmCoopFoodTrucThuoc_Update : Form
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         string _sDataType = "";
         public frmCoopFoodTrucThuoc_Update()
         {
@@ -22,7 +23,7 @@ namespace CFCResourceManagement
         }
         void LoadData()
         {
-            SqlHelper sqlHelper = new SqlHelper();
+            SqlHelper sqlHelper = new SqlHelper("cnn");
             var dtColumnsOfTable = new DataTable();
             dtColumnsOfTable = sqlHelper.GetData(String.Format("{0} '{1}' ", "exec uspGetColumnNames", "cf_truc_thuoc"));
 
@@ -88,7 +89,7 @@ namespace CFCResourceManagement
             {
                 if (dgvRow.Cells[3].Value != null && dgvRow.Cells[3].Value.ToString() != "")
                 {
-                    SqlHelper sqlHelper = new SqlHelper();
+                    SqlHelper sqlHelper = new SqlHelper("cnn");
 
                     var sQuery = String.Format("UPDATE CF_TRUC_THUOC SET UPDATETIME = GETDATE(),{0}={1}",
                         dgvRow.Cells[1].Value.ToString(), dgvRow.Cells[3].Value.ToString());

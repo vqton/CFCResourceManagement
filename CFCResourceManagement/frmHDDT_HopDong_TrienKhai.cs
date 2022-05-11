@@ -29,20 +29,17 @@ namespace CFCResourceManagement
 
         public void LoadDataSource()
         {
-            SqlHelper sqlHelper = new SqlHelper();
+            SqlHelper sqlHelper = new SqlHelper("cnn");
             var sSelectQry = string.Empty;
 
             try
             {
                 sSelectQry = "  SELECT * FROM Hd_trienKhai_hddt";
                 _oDataSource = sqlHelper.GetData(sSelectQry);
-                
             }
             catch (Exception ex)
             {
                 Logger.Debug(ex.Message);
-
-
             }
 
         }
@@ -51,6 +48,8 @@ namespace CFCResourceManagement
         {
             LoadDataSource();
             dataGridView1.DataSource = _oDataSource;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -68,12 +67,11 @@ namespace CFCResourceManagement
             var sQuery = string.Empty;
 
             if (oResult == DialogResult.Yes)
-
             {
                 try
                 {
-                    SqlHelper oSql = new SqlHelper();
-                    sQuery = String.Format("DELETE FROM 1Hd_trienKhai_hddt WHERE so_hd ='{0}'", sSoHopDong);
+                    SqlHelper oSql = new SqlHelper("cnn");
+                    sQuery = String.Format("DELETE FROM Hd_trienKhai_hddt WHERE so_hd ='{0}'", sSoHopDong);
                     oSql.ExecNonQuery(sQuery);
                     LoadDataSource();
                     dataGridView1.DataSource = _oDataSource;
@@ -110,7 +108,7 @@ namespace CFCResourceManagement
             catch (Exception ex)
             {
 
-                
+                Logger.Debug(ex, "error");
             }
         }
 
@@ -125,7 +123,7 @@ namespace CFCResourceManagement
             {
 
                 sMaHD = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                SqlHelper oSql = new SqlHelper();
+                SqlHelper oSql = new SqlHelper("cnn");
                 
                     foreach (KeyValuePair<string, string> item in dctUpdFields)
                     {
@@ -139,7 +137,7 @@ namespace CFCResourceManagement
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
+                Logger.Debug(ex, "error");
 
             }
         }

@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblIPAddress = new System.Windows.Forms.ToolStripStatusLabel();
@@ -47,8 +50,10 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.parnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -113,19 +118,19 @@
             // storesToolStripMenuItem
             // 
             this.storesToolStripMenuItem.Name = "storesToolStripMenuItem";
-            this.storesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.storesToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.storesToolStripMenuItem.Text = "Stores";
             this.storesToolStripMenuItem.Click += new System.EventHandler(this.storesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(102, 6);
             // 
             // pOSToolStripMenuItem
             // 
             this.pOSToolStripMenuItem.Name = "pOSToolStripMenuItem";
-            this.pOSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pOSToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.pOSToolStripMenuItem.Text = "POS";
             // 
             // cFNQToolStripMenuItem
@@ -163,38 +168,57 @@
             // deploymentToolStripMenuItem
             // 
             this.deploymentToolStripMenuItem.Name = "deploymentToolStripMenuItem";
-            this.deploymentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deploymentToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.deploymentToolStripMenuItem.Text = "Hợp đồng triển khai";
             this.deploymentToolStripMenuItem.Click += new System.EventHandler(this.deploymentToolStripMenuItem_Click);
             // 
             // warrantyToolStripMenuItem
             // 
             this.warrantyToolStripMenuItem.Name = "warrantyToolStripMenuItem";
-            this.warrantyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.warrantyToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.warrantyToolStripMenuItem.Text = "Hơp đồng bảo trì";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(164, 6);
             // 
             // parnerToolStripMenuItem
             // 
             this.parnerToolStripMenuItem.Name = "parnerToolStripMenuItem";
-            this.parnerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.parnerToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.parnerToolStripMenuItem.Text = "Đối tác";
             this.parnerToolStripMenuItem.Click += new System.EventHandler(this.parnerToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(164, 6);
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(0, 24);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(800, 404);
+            this.chart1.TabIndex = 2;
+            this.chart1.Text = "chart1";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -206,6 +230,7 @@
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,6 +257,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem parnerToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
 

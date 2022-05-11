@@ -102,7 +102,7 @@ namespace CFCResourceManagement
                                     sQueryIns += ",'" + Convert2DbDatetime(item[13].ToString()) + "'";
                                     sQueryIns += ",'" + item[9].ToString() + "','TOPOS',1,1,GETDATE())";
 
-                                    SqlHelper sqlHelper = new SqlHelper();
+                                    SqlHelper sqlHelper = new SqlHelper("cnn");
                                     sqlHelper.ExecNonQuery(sQueryIns);
                                 }
                             }

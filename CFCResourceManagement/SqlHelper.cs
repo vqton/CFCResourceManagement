@@ -8,10 +8,19 @@ public class SqlHelper
 {
     string connectionString = "";
     private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
-    public SqlHelper()
+    string _sConnectionName = string.Empty;
+
+    public SqlHelper(string sConnectionName)
     {
-        connectionString = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
-        
+        if (sConnectionName.Length > 0)
+        {
+            _sConnectionName = sConnectionName;
+        }
+        else
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
+        }
+        connectionString = ConfigurationManager.ConnectionStrings[_sConnectionName].ConnectionString;
     }
 
     public void ExecNonQuery(string queryString)
@@ -25,15 +34,12 @@ public class SqlHelper
                 SqlCommand command = new SqlCommand(queryString, connection);
                 connection.Open();
                 iResult = command.ExecuteNonQuery();
-                
+
             }
             catch (Exception ex)
             {
                 Logger.Debug(ex, "Error");
-                
             }
-
-
         }
     }
 
@@ -43,10 +49,10 @@ public class SqlHelper
                    connectionString))
         {
             connection.Open();
-           
+
             SqlCommand command = new SqlCommand(queryString, connection);
             SqlDataReader reader = command.ExecuteReader();
-           
+
 
             return reader;
         }
@@ -71,7 +77,6 @@ public class SqlHelper
             {
                 Logger.Debug(ex.Message);
             }
-
         }
 
         return null;
@@ -141,7 +146,7 @@ public class SqlHelper
 
             //Without the SqlCommandBuilder this line would fail
             adapter.Update(dataSet, tableName);
-            
+
             return dataSet;
         }
     }

@@ -15,6 +15,7 @@ namespace CFCResourceManagement
 {
     public partial class frmCoopFoodTrucThuoc : Form
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         DataTable _oDataSource;
         public frmCoopFoodTrucThuoc()
         {
@@ -66,10 +67,17 @@ namespace CFCResourceManagement
         }
         void LoadDataSource()
         {
-            SqlHelper sqlHelper = new SqlHelper();
 
+            try
+            {
+                SqlHelper sqlHelper = new SqlHelper("cnn");
+                _oDataSource = sqlHelper.GetData("SELECT * FROM CF_TRUC_THUOC");
+            }
+            catch (Exception ex)
+            {
 
-            _oDataSource = sqlHelper.GetData("SELECT * FROM CF_TRUC_THUOC");
+                Logger.Debug(ex, "error");
+            }
 
             
         }
@@ -187,7 +195,7 @@ namespace CFCResourceManagement
             sMaCH = dgvStores.CurrentRow.Cells[0].Value.ToString();
             try
             {
-                SqlHelper oSqlHelper = new SqlHelper();
+                SqlHelper oSqlHelper = new SqlHelper("cnn");
                 sQueryUpd = String.Format("UPDATE cf_truc_thuoc SET NGAYKT_CT = '9999/12/31', updatetime=GETDATE() WHERE MACH='{0}'", sMaCH);
                 oSqlHelper.ExecNonQuery(sQueryUpd);
                 LoadDataSource();
@@ -196,7 +204,7 @@ namespace CFCResourceManagement
             }
             catch (Exception ex)
             {
-                
+                Logger.Debug(ex, "error");
             }
 
         }
