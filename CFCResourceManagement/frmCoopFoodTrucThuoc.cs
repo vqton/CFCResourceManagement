@@ -208,5 +208,27 @@ namespace CFCResourceManagement
             }
 
         }
+
+        private void btnCloseStore_Click(object sender, EventArgs e)
+        {
+            var sMaCH = string.Empty;
+            var sQueryUpd = string.Empty;
+
+
+            sMaCH = dgvStores.CurrentRow.Cells[0].Value.ToString();
+            try
+            {
+                SqlHelper oSqlHelper = new SqlHelper("cnn");
+                sQueryUpd = String.Format("UPDATE cf_truc_thuoc SET NgayDongCua = Getdate(),hoatdong=0, ktslbh=0, updatetime=GETDATE() WHERE MACH='{0}'", sMaCH);
+                oSqlHelper.ExecNonQuery(sQueryUpd);
+                LoadDataSource();
+                dgvStores.DataSource = _oDataSource;
+                MessageBox.Show(String.Format("The store {0} has been close.", sMaCH), "Close store", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                Logger.Debug(ex, "error");
+            }
+        }
     }
 }

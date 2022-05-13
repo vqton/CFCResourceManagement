@@ -20,7 +20,7 @@ namespace CFCResourceManagement
 
         //private readonly AppContext _context;
 
-
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         public frmMain()
         {
 
@@ -35,7 +35,16 @@ namespace CFCResourceManagement
             this.toolStripStatusLabel1.Text = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
             lblIPAddress.Text = "IP: " + GetIPAddress();
             lblUserID.Text = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            DrawDataChart();
+            try
+            {
+                DrawDataChart();
+            }
+            catch (Exception ex)
+            {
+
+                Logger.Debug(ex, "Error");
+            }
+            
         }
 
         private void storesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -89,7 +98,7 @@ namespace CFCResourceManagement
             DataView[] dv = new DataView[distinctValues.Count()];
             Series[] s = new Series[distinctValues.Count()];
 
-            MessageBox.Show(dv.Length.ToString());
+            
             for (int i = 0; i <= dv.Length-1; i++)
             {
                 dv[i] = new DataView(dtSource);
@@ -107,29 +116,9 @@ namespace CFCResourceManagement
                 chart1.Series.Add(s[i]);
             }
             chart1.ChartAreas[0].AxisY.LabelStyle.Format = "{#,##0} VND";
-            this.chart1.Titles.Add("Sale data monitoring");
-            chart1.Legends[0].Title = "Transaction date";
-            //dv1.RowFilter = ();
-            //dv2.RowFilter = ("date = #05/08/2022#");
-            //dv3.RowFilter = ("date = #05/09/2022#");
-            //dv4.RowFilter = ("date = #05/10/2022#");
-            //dv5.RowFilter = ("date = #05/11/2022#");
-            //dv1.RowFilter = ("date = #05/06/2022#");
-            //chart1.DataSource = dv1;
-            //Series
-
-            //Series a = new Series();
-            //a.Points.DataBind(dv2, "store", "amount", "");
-            ////a.XValueMember
-
-            //chart1.Series[0].Points.DataBind(dv1, "store", "amount", "");
-            ////chart1.Series[0].XValueMember = "store";
-            ////chart1.Series[0].YValueMembers = "amount";
-            //chart1.Series[0].YValueType = ChartValueType.Auto;
-            //chart1.Series.Add(a);
-            //this.chart1.Titles.Add("Salary Chart for Employee");
-            //chart1.Series[0].ChartType = SeriesChartType.Column;
-            //chart1.Series[0].IsValueShownAsLabel = true;
+            this.chart1.Titles.Add("Doanh số theo khách hàng");
+            chart1.Legends[0].Title = "Ngày";
+           
         }
 
         private void chart1_Click(object sender, EventArgs e)

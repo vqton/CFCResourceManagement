@@ -33,10 +33,11 @@
             this.lblRecords = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnCloseStore = new System.Windows.Forms.ToolStripButton();
             this.btnImportExcel = new System.Windows.Forms.ToolStripButton();
             this.btnUpdate = new System.Windows.Forms.ToolStripButton();
             this.btnExcelExport = new System.Windows.Forms.ToolStripButton();
+            this.btnDelay = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.lblMaCH = new System.Windows.Forms.ToolStripLabel();
             this.txtFieldName = new System.Windows.Forms.ToolStripComboBox();
@@ -46,7 +47,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvStores = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnDelay = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStores)).BeginInit();
@@ -77,7 +77,6 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
             this.btnImportExcel,
             this.btnUpdate,
             this.btnExcelExport,
@@ -88,21 +87,23 @@
             this.toolStripLabel1,
             this.txtGiaTri,
             this.btnSearch,
-            this.toolStripSeparator2});
+            this.toolStripSeparator2,
+            this.btnCloseStore});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // btnCloseStore
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.btnCloseStore.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnCloseStore.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseStore.Image")));
+            this.btnCloseStore.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCloseStore.Name = "btnCloseStore";
+            this.btnCloseStore.Size = new System.Drawing.Size(23, 22);
+            this.btnCloseStore.Text = "Close Store";
+            this.btnCloseStore.Click += new System.EventHandler(this.btnCloseStore_Click);
             // 
             // btnImportExcel
             // 
@@ -133,6 +134,16 @@
             this.btnExcelExport.Size = new System.Drawing.Size(23, 22);
             this.btnExcelExport.Text = "Export Excel";
             this.btnExcelExport.Click += new System.EventHandler(this.btnExcelExport_Click);
+            // 
+            // btnDelay
+            // 
+            this.btnDelay.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDelay.Image = ((System.Drawing.Image)(resources.GetObject("btnDelay.Image")));
+            this.btnDelay.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelay.Name = "btnDelay";
+            this.btnDelay.Size = new System.Drawing.Size(23, 22);
+            this.btnDelay.Text = "Delay Opening";
+            this.btnDelay.Click += new System.EventHandler(this.btnDelay_Click);
             // 
             // toolStripSeparator1
             // 
@@ -195,16 +206,6 @@
             // 
             this.openFileDialog1.FileName = "TB";
             // 
-            // btnDelay
-            // 
-            this.btnDelay.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnDelay.Image = ((System.Drawing.Image)(resources.GetObject("btnDelay.Image")));
-            this.btnDelay.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDelay.Name = "btnDelay";
-            this.btnDelay.Size = new System.Drawing.Size(23, 22);
-            this.btnDelay.Text = "Delay Opening";
-            this.btnDelay.Click += new System.EventHandler(this.btnDelay_Click);
-            // 
             // frmCoopFoodTrucThuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,7 +235,7 @@
         private System.Windows.Forms.DataGridView dgvStores;
         private System.Windows.Forms.ToolStripStatusLabel lblRecords;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton btnCloseStore;
         private System.Windows.Forms.ToolStripButton btnImportExcel;
         private System.Windows.Forms.ToolStripButton btnUpdate;
         private System.Windows.Forms.ToolStripButton btnExcelExport;
