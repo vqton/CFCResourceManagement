@@ -40,7 +40,7 @@
             this.cFTTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.pOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnBaoTri = new System.Windows.Forms.ToolStripMenuItem();
             this.cFNQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
@@ -51,6 +51,7 @@
             this.parnerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnTrienKhai = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -110,7 +111,8 @@
             this.cFTTToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.storesToolStripMenuItem,
             this.toolStripMenuItem1,
-            this.pOSToolStripMenuItem});
+            this.btnBaoTri,
+            this.btnTrienKhai});
             this.cFTTToolStripMenuItem.Name = "cFTTToolStripMenuItem";
             this.cFTTToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.cFTTToolStripMenuItem.Text = "CFTT";
@@ -118,20 +120,20 @@
             // storesToolStripMenuItem
             // 
             this.storesToolStripMenuItem.Name = "storesToolStripMenuItem";
-            this.storesToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.storesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.storesToolStripMenuItem.Text = "Stores";
             this.storesToolStripMenuItem.Click += new System.EventHandler(this.storesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(102, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
-            // pOSToolStripMenuItem
+            // btnBaoTri
             // 
-            this.pOSToolStripMenuItem.Name = "pOSToolStripMenuItem";
-            this.pOSToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-            this.pOSToolStripMenuItem.Text = "POS";
+            this.btnBaoTri.Name = "btnBaoTri";
+            this.btnBaoTri.Size = new System.Drawing.Size(180, 22);
+            this.btnBaoTri.Text = "Theo dõi bảo trì";
             // 
             // cFNQToolStripMenuItem
             // 
@@ -145,13 +147,13 @@
             // storesToolStripMenuItem1
             // 
             this.storesToolStripMenuItem1.Name = "storesToolStripMenuItem1";
-            this.storesToolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
+            this.storesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.storesToolStripMenuItem1.Text = "Stores";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(102, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
             // 
             // eInvoiceToolStripMenuItem
             // 
@@ -213,6 +215,12 @@
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
+            // btnTrienKhai
+            // 
+            this.btnTrienKhai.Name = "btnTrienKhai";
+            this.btnTrienKhai.Size = new System.Drawing.Size(180, 22);
+            this.btnTrienKhai.Text = "Theo dõi triển khai";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,7 +252,7 @@
         private System.Windows.Forms.ToolStripMenuItem cFTTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem storesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem pOSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnBaoTri;
         private System.Windows.Forms.ToolStripMenuItem cFNQToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem storesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
@@ -258,6 +266,7 @@
         private System.Windows.Forms.ToolStripMenuItem parnerToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.ToolStripMenuItem btnTrienKhai;
     }
 }
 
