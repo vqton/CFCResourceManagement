@@ -12,6 +12,7 @@ namespace CFCResourceManagement
 {
     public partial class frmDoiTac_add : Form
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         public frmDoiTac_add()
         {
             InitializeComponent();
@@ -136,6 +137,7 @@ namespace CFCResourceManagement
             catch (Exception ex)
             {
                MessageBox.Show("There is issue. Open log file to read technical information about the issue.", "Add records", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Logger.Debug(ex, "error");
                
             }
 
