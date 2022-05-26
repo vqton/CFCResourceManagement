@@ -15,7 +15,7 @@ namespace CFCResourceManagement
     {
         DataObject _dataOject;
         string _path = "";
-
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         OleDbConnection connection;
         public clsExcel(DataObject dataOject)
         {
@@ -30,14 +30,16 @@ namespace CFCResourceManagement
         {
 
             Microsoft.Office.Interop.Excel.Application excelApp;
-            Microsoft.Office.Interop.Excel.Workbook excelWkbk;
-            Microsoft.Office.Interop.Excel.Worksheet excelWksht;
+            Workbook excelWkbk;
+            Worksheet excelWksht;
             object misValue = System.Reflection.Missing.Value;
-            excelApp = new Microsoft.Office.Interop.Excel.Application();
-            excelApp.Visible = true;
+            excelApp = new Microsoft.Office.Interop.Excel.Application
+            {
+                Visible = true
+            };
             excelWkbk = excelApp.Workbooks.Add(misValue);
-            excelWksht = (Microsoft.Office.Interop.Excel.Worksheet)excelWkbk.Worksheets.get_Item(1);
-            Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)excelWksht.Cells[1, 1];
+            excelWksht = (Worksheet)excelWkbk.Worksheets.get_Item(1);
+            Range CR = (Range)excelWksht.Cells[1, 1];
             CR.Select();
             excelWksht.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
         }
@@ -115,7 +117,7 @@ namespace CFCResourceManagement
             }
             catch (Exception ex)
             {
-               
+                Logger.Debug(ex, "Error");
             }
             return isSuccessful;
         }

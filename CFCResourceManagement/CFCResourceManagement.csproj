@@ -245,6 +245,12 @@
     <Compile Include="frmCoopFoodTrucThuoc_Update.Designer.cs">
       <DependentUpon>frmCoopFoodTrucThuoc_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTheoDoiBaoTri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTheoDoiBaoTri.Designer.cs">
+      <DependentUpon>frmTheoDoiBaoTri.cs</DependentUpon>
+    </Compile>
     <Compile Include="NLogHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -269,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCoopFoodTrucThuoc_Update.resx">
       <DependentUpon>frmCoopFoodTrucThuoc_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTheoDoiBaoTri.resx">
+      <DependentUpon>frmTheoDoiBaoTri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

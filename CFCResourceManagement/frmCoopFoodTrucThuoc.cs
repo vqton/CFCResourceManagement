@@ -23,7 +23,8 @@ namespace CFCResourceManagement
             InitializeComponent();
             this.Text = "Danh sách Co.opFood trực thuộc";
         }
-        void c1()
+        
+        void ColumnsFormat()
         {
             dgvStores.AllowUserToOrderColumns = true;
             dgvStores.AllowUserToResizeColumns = true;
@@ -44,11 +45,13 @@ namespace CFCResourceManagement
 
 
                 lblRecords.Text = "Stores :" + _oDataSource.Rows.Count.ToString("N0");
+                this.toolStripStatusLabel2.Text = String.Format("Close stores: {0}", CountingClosedStore().ToString("N0")) ;
 
+                btnTrangThai.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
-
+                Logger.Debug(ex, "Error");
                 
             }
 
@@ -106,28 +109,28 @@ namespace CFCResourceManagement
             }
             catch (Exception exc)
             {
-                
+                Logger.Debug(exc, "Error");
             }
         }
 
         private void dgvStores_MouseDown(object sender, MouseEventArgs e)
         {
-            c1();
+            ColumnsFormat();
         }
 
         private void dgvStores_MouseUp(object sender, MouseEventArgs e)
         {
-            c1();
+            ColumnsFormat();
         }
 
         private void dgvStores_MouseMove(object sender, MouseEventArgs e)
         {
-            c1();
+            ColumnsFormat();
         }
 
         private void dgvStores_Scroll(object sender, ScrollEventArgs e)
         {
-            c1();
+            ColumnsFormat();
         }
 
         private void txtGiaTri_KeyDown(object sender, KeyEventArgs e)
@@ -159,6 +162,16 @@ namespace CFCResourceManagement
             oFrmUpdate.Show();
         }
 
+        int CountingClosedStore()
+        {
+            int iCloseStore = 0;
+
+            iCloseStore = (from item in _oDataSource.AsEnumerable()
+                    where item.Field<Boolean>("hoatdong") == false
+                    select item).Count();
+
+            return iCloseStore;
+        }
         private void btnImportExcel_Click(object sender, EventArgs e)
         {
 
@@ -229,6 +242,45 @@ namespace CFCResourceManagement
             {
                 Logger.Debug(ex, "error");
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var sMaCH = dgvStores.CurrentRow.Cells[0].Value.ToString();
+            var sQueryDel = string.Empty;
+            try
+            {
+                SqlHelper oSqlHelper = new SqlHelper("cnn");
+                sQueryDel = String.Format("DELETE FROM cf_truc_thuoc WHERE MACH='{0}'", sMaCH);
+                oSqlHelper.ExecNonQuery(sQueryDel);
+                LoadDataSource();
+                dgvStores.DataSource = _oDataSource;
+                MessageBox.Show(String.Format("The store {0} has been remove.", sMaCH), "Remove store", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                Logger.Debug(ex, "error");
+            }
+
+        }
+
+        private void btnTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (btnTrangThai.SelectedIndex)
+            {
+                case 0:
+                    _oDataSource.DefaultView.RowFilter = "1=1";
+                    break;
+                case 1:
+                    _oDataSource.DefaultView.RowFilter = "hoatdong=1";
+                    break;
+                case 2:
+                    _oDataSource.DefaultView.RowFilter = "hoatdong=0";
+                    break;
+                default:
+                    break;
+            }
+            
         }
     }
 }

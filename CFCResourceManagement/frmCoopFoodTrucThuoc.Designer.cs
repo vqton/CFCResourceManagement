@@ -33,7 +33,6 @@
             this.lblRecords = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnCloseStore = new System.Windows.Forms.ToolStripButton();
             this.btnImportExcel = new System.Windows.Forms.ToolStripButton();
             this.btnUpdate = new System.Windows.Forms.ToolStripButton();
             this.btnExcelExport = new System.Windows.Forms.ToolStripButton();
@@ -45,8 +44,14 @@
             this.txtGiaTri = new System.Windows.Forms.ToolStripTextBox();
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnCloseStore = new System.Windows.Forms.ToolStripButton();
             this.dgvStores = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnTrangThai = new System.Windows.Forms.ToolStripComboBox();
+            this.lblTrangThai = new System.Windows.Forms.ToolStripLabel();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStores)).BeginInit();
@@ -88,22 +93,17 @@
             this.txtGiaTri,
             this.btnSearch,
             this.toolStripSeparator2,
-            this.btnCloseStore});
+            this.btnCloseStore,
+            this.toolStripSeparator3,
+            this.btnDelete,
+            this.toolStripSeparator4,
+            this.lblTrangThai,
+            this.btnTrangThai});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btnCloseStore
-            // 
-            this.btnCloseStore.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnCloseStore.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseStore.Image")));
-            this.btnCloseStore.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCloseStore.Name = "btnCloseStore";
-            this.btnCloseStore.Size = new System.Drawing.Size(23, 22);
-            this.btnCloseStore.Text = "Close Store";
-            this.btnCloseStore.Click += new System.EventHandler(this.btnCloseStore_Click);
             // 
             // btnImportExcel
             // 
@@ -189,6 +189,16 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // btnCloseStore
+            // 
+            this.btnCloseStore.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnCloseStore.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseStore.Image")));
+            this.btnCloseStore.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCloseStore.Name = "btnCloseStore";
+            this.btnCloseStore.Size = new System.Drawing.Size(23, 22);
+            this.btnCloseStore.Text = "Close Store";
+            this.btnCloseStore.Click += new System.EventHandler(this.btnCloseStore_Click);
+            // 
             // dgvStores
             // 
             this.dgvStores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -205,6 +215,42 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "TB";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(23, 22);
+            this.btnDelete.Text = "Delete record";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnTrangThai
+            // 
+            this.btnTrangThai.Items.AddRange(new object[] {
+            "Tất cả",
+            "Hoạt động",
+            "Ngừng hoạt động"});
+            this.btnTrangThai.Name = "btnTrangThai";
+            this.btnTrangThai.Size = new System.Drawing.Size(121, 25);
+            this.btnTrangThai.SelectedIndexChanged += new System.EventHandler(this.btnTrangThai_SelectedIndexChanged);
+            // 
+            // lblTrangThai
+            // 
+            this.lblTrangThai.Name = "lblTrangThai";
+            this.lblTrangThai.Size = new System.Drawing.Size(56, 22);
+            this.lblTrangThai.Text = "Trạng thái";
             // 
             // frmCoopFoodTrucThuoc
             // 
@@ -248,5 +294,10 @@
         private System.Windows.Forms.ToolStripComboBox txtFieldName;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripButton btnDelay;
+        private System.Windows.Forms.ToolStripButton btnDelete;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripComboBox btnTrangThai;
+        private System.Windows.Forms.ToolStripLabel lblTrangThai;
     }
 }

@@ -77,7 +77,7 @@ namespace CFCResourceManagement
             }
             catch (Exception ex)
             {
-
+Logger.Debug(ex, "Error");
                 
             }
         }

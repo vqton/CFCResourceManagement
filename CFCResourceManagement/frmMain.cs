@@ -105,7 +105,7 @@ namespace CFCResourceManagement
             }
 
 
-            int j = 0;
+            //int j = 0;
 
             for (int i = 0; i <= distinctValues.Count() - 1; i++)
             {
@@ -124,6 +124,12 @@ namespace CFCResourceManagement
         private void chart1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBaoTri_Click(object sender, EventArgs e)
+        {
+            frmTheoDoiBaoTri oBaoTri = new frmTheoDoiBaoTri();
+            oBaoTri.Show();
         }
     }
 }
