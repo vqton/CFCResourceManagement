@@ -199,6 +199,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cftt_reschedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cftt_reschedule.Designer.cs">
+      <DependentUpon>cftt_reschedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="clsExcel.cs" />
     <Compile Include="clsMonitorSaleData.cs" />
     <Compile Include="clsSingleInstance.cs" />
@@ -255,6 +261,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlHelper.cs" />
+    <EmbeddedResource Include="cftt_reschedule.resx">
+      <DependentUpon>cftt_reschedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDoiTac.resx">
       <DependentUpon>frmDoiTac.cs</DependentUpon>
     </EmbeddedResource>

@@ -44,7 +44,7 @@ namespace CFCResourceManagement
 
 
 
-                lblRecords.Text = "Stores :" + _oDataSource.Rows.Count.ToString("N0");
+                lblRecords.Text = "Stores: " + _oDataSource.Rows.Count.ToString("N0");
                 this.toolStripStatusLabel2.Text = String.Format("Close stores: {0}", CountingClosedStore().ToString("N0")) ;
 
                 btnTrangThai.SelectedIndex = 0;
@@ -193,8 +193,9 @@ namespace CFCResourceManagement
             {
                 MessageBox.Show("The " + sExcelPath + "  has been imported.");
                 var sPath = sExcelPath.Replace(Path.GetFileName(sExcelPath), "");
-                System.IO.File.Move(sExcelPath, Path.Combine(sPath, Path.GetFileNameWithoutExtension(sExcelPath) + "_imported.xlsx"));
+                System.IO.File.Move(sExcelPath, Path.Combine(sPath, "[Imported]" + Path.GetFileNameWithoutExtension(sExcelPath) + ".xlsx"));
                 LoadDataSource();
+                this.dgvStores.DataSource = _oDataSource;
             }
 
         }
@@ -248,14 +249,20 @@ namespace CFCResourceManagement
         {
             var sMaCH = dgvStores.CurrentRow.Cells[0].Value.ToString();
             var sQueryDel = string.Empty;
+
             try
             {
                 SqlHelper oSqlHelper = new SqlHelper("cnn");
                 sQueryDel = String.Format("DELETE FROM cf_truc_thuoc WHERE MACH='{0}'", sMaCH);
-                oSqlHelper.ExecNonQuery(sQueryDel);
-                LoadDataSource();
-                dgvStores.DataSource = _oDataSource;
-                MessageBox.Show(String.Format("The store {0} has been remove.", sMaCH), "Remove store", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                var dlgAnswer = MessageBox.Show(String.Format("Do you want to remove the {0}?", sMaCH), "Remove store", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlgAnswer == DialogResult.Yes)
+                {
+                    oSqlHelper.ExecNonQuery(sQueryDel);
+                    LoadDataSource();
+                    dgvStores.DataSource = _oDataSource;
+
+                }
+
             }
             catch (Exception ex)
             {
@@ -270,6 +277,7 @@ namespace CFCResourceManagement
             {
                 case 0:
                     _oDataSource.DefaultView.RowFilter = "1=1";
+
                     break;
                 case 1:
                     _oDataSource.DefaultView.RowFilter = "hoatdong=1";
@@ -280,7 +288,14 @@ namespace CFCResourceManagement
                 default:
                     break;
             }
-            
+         lblRecords.Text =  string.Format("Stores :{0}", dgvStores.Rows.GetRowCount(DataGridViewElementStates.Visible).ToString()) ;
+        }
+
+        private void btnReschedule_Click(object sender, EventArgs e)
+        {
+            var sMaCH = dgvStores.CurrentRow.Cells[0].Value.ToString();
+            cftt_reschedule oCftt_Reschedule = new cftt_reschedule(sMaCH);
+            oCftt_Reschedule.Show();
         }
     }
 }

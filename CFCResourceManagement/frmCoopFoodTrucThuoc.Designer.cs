@@ -45,13 +45,14 @@
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCloseStore = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.lblTrangThai = new System.Windows.Forms.ToolStripLabel();
+            this.btnTrangThai = new System.Windows.Forms.ToolStripComboBox();
             this.dgvStores = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnTrangThai = new System.Windows.Forms.ToolStripComboBox();
-            this.lblTrangThai = new System.Windows.Forms.ToolStripLabel();
+            this.btnReschedule = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStores)).BeginInit();
@@ -96,6 +97,7 @@
             this.btnCloseStore,
             this.toolStripSeparator3,
             this.btnDelete,
+            this.btnReschedule,
             this.toolStripSeparator4,
             this.lblTrangThai,
             this.btnTrangThai});
@@ -199,6 +201,42 @@
             this.btnCloseStore.Text = "Close Store";
             this.btnCloseStore.Click += new System.EventHandler(this.btnCloseStore_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(23, 22);
+            this.btnDelete.Text = "Delete record";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // lblTrangThai
+            // 
+            this.lblTrangThai.Name = "lblTrangThai";
+            this.lblTrangThai.Size = new System.Drawing.Size(56, 22);
+            this.lblTrangThai.Text = "Trạng thái";
+            // 
+            // btnTrangThai
+            // 
+            this.btnTrangThai.Items.AddRange(new object[] {
+            "Tất cả",
+            "Hoạt động",
+            "Ngừng hoạt động"});
+            this.btnTrangThai.Name = "btnTrangThai";
+            this.btnTrangThai.Size = new System.Drawing.Size(121, 25);
+            this.btnTrangThai.SelectedIndexChanged += new System.EventHandler(this.btnTrangThai_SelectedIndexChanged);
+            // 
             // dgvStores
             // 
             this.dgvStores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -214,43 +252,17 @@
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "TB";
+            this.openFileDialog1.FileName = "TB*.xlsx";
             // 
-            // btnDelete
+            // btnReschedule
             // 
-            this.btnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(23, 22);
-            this.btnDelete.Text = "Delete record";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnTrangThai
-            // 
-            this.btnTrangThai.Items.AddRange(new object[] {
-            "Tất cả",
-            "Hoạt động",
-            "Ngừng hoạt động"});
-            this.btnTrangThai.Name = "btnTrangThai";
-            this.btnTrangThai.Size = new System.Drawing.Size(121, 25);
-            this.btnTrangThai.SelectedIndexChanged += new System.EventHandler(this.btnTrangThai_SelectedIndexChanged);
-            // 
-            // lblTrangThai
-            // 
-            this.lblTrangThai.Name = "lblTrangThai";
-            this.lblTrangThai.Size = new System.Drawing.Size(56, 22);
-            this.lblTrangThai.Text = "Trạng thái";
+            this.btnReschedule.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnReschedule.Image = ((System.Drawing.Image)(resources.GetObject("btnReschedule.Image")));
+            this.btnReschedule.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnReschedule.Name = "btnReschedule";
+            this.btnReschedule.Size = new System.Drawing.Size(23, 22);
+            this.btnReschedule.Text = "Opening date change";
+            this.btnReschedule.Click += new System.EventHandler(this.btnReschedule_Click);
             // 
             // frmCoopFoodTrucThuoc
             // 
@@ -299,5 +311,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripComboBox btnTrangThai;
         private System.Windows.Forms.ToolStripLabel lblTrangThai;
+        private System.Windows.Forms.ToolStripButton btnReschedule;
     }
 }

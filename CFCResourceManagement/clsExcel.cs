@@ -95,8 +95,9 @@ namespace CFCResourceManagement
                                 {
 
 
-                                    sQueryIns = "INSERT INTO CF_TRUC_THUOC(MaCH, TenCH, DiaChi,NgayBatCo, NgayKT_DK,NgayKT_CT, PriceZone, POS,HoatDong,KtSlbh, UpdateTime) Values(";
-                                    sQueryIns += "'" + item[5].ToString() + "'";
+                                    sQueryIns = "INSERT INTO CF_TRUC_THUOC(MaSoThue,MaCH, TenCH, DiaChi,NgayBatCo, NgayKT_DK,NgayKT_CT, PriceZone, POS,HoatDong,KtSlbh, UpdateTime) Values(";
+                                    sQueryIns += "'" + item[12].ToString() + "'";
+                                    sQueryIns += ",'" + item[5].ToString() + "'";
                                     sQueryIns += ",N'" + item[1].ToString() + "'";
                                     sQueryIns += ",N'" + item[2].ToString() + "'";
                                     sQueryIns += ",'" + Convert2DbDatetime(item[14].ToString()) + "'";
