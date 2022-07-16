@@ -1,13 +1,10 @@
-﻿using System.Data.OleDb;
-using System.Data;
+﻿using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using Serilog;
-using System.IO;
 
 namespace CFCResourceManagement
 {
